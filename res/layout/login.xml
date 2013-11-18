@@ -1,0 +1,113 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/bg">
+
+    <LinearLayout 
+        android:layout_width="fill_parent"
+    	android:layout_height="wrap_content"
+    	android:orientation="horizontal"
+    	android:background="@drawable/backrepeat">
+    	
+      <ImageView
+        android:layout_width="120dp"
+        android:layout_height="80dp"
+        android:src="@drawable/logo" />
+       <Button 
+           android:id="@+id/sign_up"
+           android:layout_height="wrap_content"
+           android:layout_width="80dp" 
+           android:layout_marginTop="20dp"
+           android:layout_marginLeft="20dp"
+           style="@style/btnStyleArsenic"
+           android:text="Sign up"/>
+      <Button 
+           android:id="@+id/sign_in"
+           android:layout_height="wrap_content"
+           android:layout_width="80dp" 
+           android:layout_marginTop="20dp"
+           android:layout_marginLeft="5dp"
+           style="@style/btnStyleArsenic"
+           android:text="Sign in"/>
+    </LinearLayout>
+    <LinearLayout 
+        android:layout_width="fill_parent"
+    	android:layout_height="60dp"
+    	android:layout_marginTop="110dp"
+    	android:layout_marginLeft="20dp"
+    	android:layout_marginRight="20dp"
+    	android:orientation="vertical"
+    	android:background="@drawable/login_bg">
+       
+        <TextView 
+             android:layout_width="fill_parent"
+    		 android:layout_height="wrap_content"
+			 android:text="Log in to your account" 
+			 android:layout_marginTop="15dp"
+			 android:layout_marginLeft="50dp"
+			 android:textSize="17sp"
+			 android:textColor="#000"/>
+      </LinearLayout>
+      <LinearLayout 
+        android:layout_width="fill_parent"
+    	android:layout_height="260dp"
+    	android:layout_marginTop="170dp"
+    	android:layout_marginLeft="20dp"
+    	android:layout_marginRight="20dp"
+    	android:orientation="vertical"
+    	android:background="@drawable/login_bg2">
+       
+        <EditText
+            android:id="@+id/u_name"
+            android:layout_width="fill_parent"
+            android:layout_height="50dp"
+            android:layout_marginLeft="20dp"
+            android:layout_marginRight="20dp"
+            android:layout_marginTop="20dp"
+            android:background="@drawable/backwithborder"
+            android:inputType="textEmailAddress"
+            android:drawableLeft="@drawable/login_logo"
+            android:text=""
+            android:textColor="@android:color/black" >
+            <requestFocus></requestFocus></EditText>
+        <EditText
+            android:id="@+id/password"
+            android:layout_width="fill_parent"
+            android:layout_height="50dp"
+            android:layout_marginLeft="20dp"
+            android:layout_marginRight="20dp"
+            android:layout_marginTop="20dp"
+            android:inputType="textPassword"
+            android:background="@drawable/backwithborder"
+            android:drawableLeft="@drawable/password_logo"
+            android:text=""
+            android:textColor="@android:color/black" />
+        <CheckBox 
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:text="Remember me"
+            android:layout_marginLeft="20dp"
+            android:layout_marginTop="3dp"
+            android:textColor="@color/black"
+            />
+         <Button
+             android:id="@+id/signin_submut"
+             android:layout_width="fill_parent"
+             android:layout_height="50dp"
+             android:layout_marginLeft="20dp"
+             android:layout_marginRight="20dp"
+             android:layout_marginTop="3dp"
+             style="@style/btnStyleBeige"
+             android:text="Sign in" />
+      </LinearLayout>
+         
+     <LinearLayout 
+        android:layout_width="fill_parent"
+    	android:layout_height="wrap_content"
+    	android:orientation="horizontal"
+    	android:layout_alignParentBottom="true"
+    	android:background="@drawable/backrepeat">
+      </LinearLayout>
+
+</RelativeLayout>

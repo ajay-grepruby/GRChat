@@ -12,7 +12,9 @@ import org.json.JSONObject;
 
 
 
+import android.app.Activity;
 import android.app.ListActivity;
+import android.content.DialogInterface.OnClickListener;
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
@@ -20,16 +22,18 @@ import android.view.View;
 import android.view.WindowManager;
 import android.widget.AdapterView;
 import android.widget.AdapterView.OnItemClickListener;
+import android.widget.Button;
+import android.widget.EditText;
 import android.widget.ListAdapter;
 import android.widget.ListView;
 import android.widget.SimpleAdapter;
 import android.widget.TextView;
+import android.widget.Toast;
 
-public class Login extends ListActivity {
+public class Login extends Activity {
 
 	// url to make request
 	private static String msg_url = "http://api.androidhive.info/contacts/";
-	
 	
 	// JSON Node names
 	private static final String TAG_CONTACTS = "contacts";
@@ -37,7 +41,12 @@ public class Login extends ListActivity {
 	private static final String TAG_NAME = "name";
 	private static final String TAG_PHONE = "phone";
 	
-
+	private String userEmail,userPassword;
+	
+	private EditText uName, password;
+	private Button signinSubmit, signIn, signUp;
+	
+    
 	// contacts JSONArray
 	//JSONArray contacts = null;
 	private TextView timer;
@@ -45,15 +54,46 @@ public class Login extends ListActivity {
 	@Override
 	public void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
-		//setContentView(R.layout.main_list);
+		setContentView(R.layout.login);
 		
-		getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN);
+		signIn = (Button)findViewById(R.id.sign_in);
+		signUp = (Button)findViewById(R.id.sign_up);
+		uName = (EditText)findViewById(R.id.u_name);
+		password = (EditText)findViewById(R.id.password);
+		signinSubmit = (Button)findViewById(R.id.signin_submut);
+		
+		signUp.setOnClickListener(new View.OnClickListener() {
+            public void onClick(View view) {				
+            	
+            	//Toast.makeText(getApplicationContext(), "clicked", 1000).show();
+            	Intent i = new Intent(getApplicationContext(), Signup.class);
+				startActivity(i);
+				finish();
+	        	
+            }
+           });
+		signinSubmit.setOnClickListener(new View.OnClickListener() {
+            public void onClick(View view) {				
+            	
+            	 userEmail = uName.getText().toString();
+   			     userPassword = password.getText().toString();
+            	
+   			     
+            	
+            	Toast.makeText(getApplicationContext(), userEmail, 1000).show();
+            	Toast.makeText(getApplicationContext(), userPassword, 1000).show();
+	        	
+            }
+           });
+			
+		
+		//getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN);
 		
 		
-		 DatabaseHandler db = new DatabaseHandler(this);
+		// DatabaseHandler db = new DatabaseHandler(this);
 		
 		// Hashmap for ListView
-		ArrayList<HashMap<String, String>> contactList = new ArrayList<HashMap<String, String>>();
+		//ArrayList<HashMap<String, String>> contactList = new ArrayList<HashMap<String, String>>();
 
 		// Creating JSON Parser instance
 		//JSONParser jParser = new JSONParser();
@@ -68,8 +108,9 @@ public class Login extends ListActivity {
 		 /**
          * CRUD Operations
          * */
+		
         // Inserting Contacts
-        Log.d("Insert: ", "Inserting .."); 
+     /*   Log.d("Insert: ", "Inserting .."); 
         db.addContact(new Contact("Hello, this is a msg from DAN Electronics", "1"));        
         db.addContact(new Contact("Hi, this is a msg from DAN Electronics", "2"));
         db.addContact(new Contact("This is a msg from DAN Electronics", "3"));
@@ -83,7 +124,7 @@ public class Login extends ListActivity {
 		
 		
 
-		try {
+		//try {
 			// Getting Array of Contacts
 		//	contacts = json.getJSONArray(TAG_CONTACTS);
 			
@@ -116,7 +157,7 @@ public class Login extends ListActivity {
 			
 			
 			
-			 for (Contact cn : contacts) {
+		/*	 for (Contact cn : contacts) {
 		            String log = "Id: "+cn.getID()+" ,Name: " + cn.getName() + " ,Phone: " + cn.getPhoneNumber();
 		            
 		          
@@ -125,7 +166,7 @@ public class Login extends ListActivity {
 					String id =Integer.toString(cn.getID());
 					String name = cn.getName();
 					String email = cn.getPhoneNumber();
-				
+				    
 					
 					// creating new HashMap
 					HashMap<String, String> maps = new HashMap<String, String>();
@@ -148,7 +189,7 @@ public class Login extends ListActivity {
 			
 		} catch (Exception e) {
 			e.printStackTrace();
-		}
+		}*/
 		
 		
 		
