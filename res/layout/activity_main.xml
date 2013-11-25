@@ -13,19 +13,27 @@
            android:gravity="right"
            android:background="@drawable/gray_bg"
            android:orientation="vertical" >
+           
+	         <SearchView
+		        android:id="@+id/menu_title_1"
+		        android:layout_width="fill_parent"
+		        android:layout_height="wrap_content"
+		        android:layout_alignParentTop="true"
+		        android:iconifiedByDefault="false">
+	        </SearchView>
        
-            <TextView
+        <!--    <TextView
                 android:id="@+id/menu_title_1"
                 android:layout_width="fill_parent"
                 android:layout_height="50dp"
                 android:layout_alignParentTop="true"
-                android:layout_marginLeft="0dp" 
+                android:layout_marginLeft="0dp" ß
                 android:paddingLeft="15dp"             
                 android:gravity="center_vertical"
                 android:background="#353535"
                 android:textColor="@android:color/white"
                 android:text="@string/menu_title">     
-            </TextView>
+            </TextView>-->  
                
             <View
 		        android:id="@+id/menu_item_divider_1"
@@ -35,15 +43,24 @@
 		        android:layout_marginRight="0dp"
 		        android:layout_below="@+id/menu_title_1"
 		        android:background="#b5b5b5"/>
-            
+            <ImageView
+                android:id="@+id/online_indicator"
+                 android:layout_width="10dp"
+                 android:layout_height="10dp"
+                 android:layout_marginLeft="15dp"  
+                 android:layout_below="@+id/menu_item_divider_1"
+                 android:layout_marginTop="20dp"
+                 android:src="@drawable/point_green"
+                 />
             <TextView
                 android:id="@+id/menu_item_1"
                 android:layout_width="fill_parent"
                 android:layout_height="50dp"
                 android:layout_marginLeft="15dp"             
                 android:gravity="center_vertical"
+                android:layout_toRightOf="@+id/online_indicator"
                 android:layout_below="@+id/menu_item_divider_1"
-                android:text="@string/item_1">     
+                android:text="Ajay">     
             </TextView>     
              <View
 		        android:id="@+id/menu_item_divider_2"
@@ -53,7 +70,7 @@
 		        android:layout_marginRight="5dp"
 		        android:layout_below="@+id/menu_item_1"
 		        android:background="#b5b5b5"/> 
-            <TextView
+          <!--  <TextView
                 android:id="@+id/menu_item_2"
                 android:layout_width="fill_parent"
                 android:layout_height="50dp"
@@ -61,7 +78,7 @@
                 android:layout_marginLeft="15dp"
                 android:gravity="center_vertical"
                 android:text="@string/item_2">
-            </TextView>
+            </TextView> --> 
             <View
 		        android:id="@+id/menu_item_divider_3"
 		        android:layout_width="fill_parent"
@@ -114,15 +131,43 @@
 				     android:layout_width="fill_parent"
 				     android:layout_height="1dp"
 				     android:background="#414141" />
-		        <ListView
+		       
+		         <LinearLayout android:id="@+id/footer"
+        			android:layout_width="fill_parent" 
+        			android:layout_height="wrap_content"
+        			android:orientation="vertical">
+			            
+		            
+		           <ListView
 		            android:id="@+id/list"
 		            android:layout_width="match_parent"
-		            android:layout_height="fill_parent"
+		            android:layout_height="400dp"
 		            android:divider="#b5b5b5"
 		            android:dividerHeight="0.5dp"
-		            android:background="@android:color/white"
-		             >
-		        </ListView>
+		             ></ListView>
+		         </LinearLayout>
+		      <LinearLayout android:id="@+id/footer"
+        			android:layout_width="fill_parent" 
+        			android:layout_height="wrap_content"
+        			android:orientation="horizontal">
+			      <EditText
+		            android:id="@+id/chat_input"
+		            android:layout_width="200dp"
+		            android:layout_height="50dp"
+		            android:layout_marginLeft="20dp"
+		            android:background="@drawable/backwithborder"
+		            android:inputType="textEmailAddress"
+		            android:text=""
+		            android:textColor="@android:color/black" >
+		            </EditText>
+		            <Button 
+		               android:id="@+id/go"
+		               android:layout_width="80dp"
+		               android:layout_height="50dp"
+		               android:layout_marginLeft="10dp"
+		               android:text="Go"/>
+		            
+	            </LinearLayout>
 
 		</LinearLayout>
 </FrameLayout>

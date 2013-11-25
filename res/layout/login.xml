@@ -71,24 +71,40 @@
             android:text=""
             android:textColor="@android:color/black" >
             <requestFocus></requestFocus></EditText>
+        <TextView
+             android:id="@+id/wrong_uname"
+             android:layout_width="fill_parent"
+             android:layout_height="wrap_content"
+             android:text=""
+             android:textSize="11sp"
+             android:layout_marginLeft="25dp"
+             android:textColor="#D00000" />
         <EditText
             android:id="@+id/password"
             android:layout_width="fill_parent"
             android:layout_height="50dp"
             android:layout_marginLeft="20dp"
             android:layout_marginRight="20dp"
-            android:layout_marginTop="20dp"
+            android:layout_marginTop="5dp"
             android:inputType="textPassword"
             android:background="@drawable/backwithborder"
             android:drawableLeft="@drawable/password_logo"
             android:text=""
             android:textColor="@android:color/black" />
+        <TextView
+             android:id="@+id/wrong_password"
+             android:layout_width="fill_parent"
+             android:layout_height="wrap_content"
+             android:text=""
+             android:textSize="11sp"
+             android:layout_marginLeft="25dp"
+             android:textColor="#D00000" />
         <CheckBox 
+            android:id="@+id/check_rem"
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"
             android:text="Remember me"
             android:layout_marginLeft="20dp"
-            android:layout_marginTop="3dp"
             android:textColor="@color/black"
             />
          <Button
