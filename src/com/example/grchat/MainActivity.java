@@ -3,9 +3,16 @@ package com.example.grchat;
 import java.util.ArrayList;
 import android.os.Bundle;
 import android.app.Activity;
+import android.app.AlertDialog;
+import android.content.Context;
+import android.content.DialogInterface;
 import android.content.Intent;
+import android.graphics.Bitmap;
 import android.util.DisplayMetrics;
+import android.view.Gravity;
 import android.view.View;
+import android.view.Window;
+import android.view.WindowManager;
 import android.view.View.OnClickListener;
 import android.view.animation.Animation;
 import android.view.animation.TranslateAnimation;
@@ -29,14 +36,14 @@ public class MainActivity extends Activity {
 	private RelativeLayout headerPanel;
 	private RelativeLayout menuPanel;
 	private int panelWidth;
-	private ImageView menuViewButton;
+	private ImageView menuViewButton,go,attech;
 	private EditText chatInput;
-	private Button go;
 	
 	private static final String TAG_ID = "id";
 	private static final String TAG_CHAT = "chat";
 	private static final String TAG_SUCCESS = "success";
 	private static final String TAG_ERRORS = "errors";
+	private final Context context = this;
 	
 	FrameLayout.LayoutParams menuPanelParameters;
 	FrameLayout.LayoutParams slidingPanelParameters;
@@ -44,6 +51,7 @@ public class MainActivity extends Activity {
 	LinearLayout.LayoutParams listViewParameters;
 	
 	final ArrayList<String> values = new ArrayList<String>();
+	ArrayList<Bitmap> mBit = new ArrayList<Bitmap>();
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -76,7 +84,8 @@ public class MainActivity extends Activity {
 		slidingPanel.setLayoutParams(slidingPanelParameters);
 		
 		chatInput = (EditText)findViewById(R.id.chat_input);
-		go = (Button)findViewById(R.id.go);
+		go = (ImageView)findViewById(R.id.go);
+		attech = (ImageView)findViewById(R.id.attech);
 		
 		go.setOnClickListener(new OnClickListener() {
 			public void onClick(View v) {
@@ -86,6 +95,41 @@ public class MainActivity extends Activity {
 		    	values.add(chat);
 		    	initChat();
 		  }
+		});
+		attech.setOnClickListener(new OnClickListener() {
+			
+			@Override
+			public void onClick(View v) {
+			
+				CharSequence[] items = {"Capture and send aphoto", "Send an image","Send a video","Send a file"};
+				AlertDialog.Builder builder = new AlertDialog.Builder(context);
+		    builder.setItems(items, new DialogInterface.OnClickListener() {
+		        public void onClick(DialogInterface dialog, int item) {
+
+		            if(item == 0) {
+		            	
+		            	Intent i = new Intent(getApplicationContext(), CameraPhotoCapture.class);
+		          		startActivity(i);
+		          		finish();
+
+		            } else if(item == 1) {
+
+		            } else if(item == 2) {
+
+		            }
+		        }
+		    });
+
+		     AlertDialog dialog = builder.create();
+		     dialog.requestWindowFeature(Window.FEATURE_NO_TITLE);
+		     WindowManager.LayoutParams wmlp = dialog.getWindow().getAttributes();
+
+		  wmlp.gravity = Gravity.TOP | Gravity.LEFT;
+		  wmlp.x = 100;   //x position
+		  wmlp.y = 280;   //y position
+
+		  dialog.show();
+			}
 		});
 		
 		//Slide the Panel	

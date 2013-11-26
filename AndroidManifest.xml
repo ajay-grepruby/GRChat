@@ -9,6 +9,9 @@
         android:targetSdkVersion="17" />
 
     <uses-permission android:name="android.permission.INTERNET" />
+    <uses-feature android:name="android.hardware.camera" />
+	<uses-permission android:name="android.permission.CAMERA" />
+	<uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
     <application
         android:allowBackup="true" android:icon="@drawable/logo" android:theme="@android:style/Theme.NoTitleBar" android:label="@string/app_name"  >
         <activity
@@ -24,6 +27,8 @@
       <activity
             android:name="com.example.grchat.MainActivity" 
             android:windowSoftInputMode="stateHidden|adjustPan" />
+      <activity
+            android:name="com.example.grchat.CameraPhotoCapture" /> 
     </application>
 
 </manifest>
