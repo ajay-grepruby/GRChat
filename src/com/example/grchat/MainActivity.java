@@ -17,7 +17,6 @@ import android.view.View.OnClickListener;
 import android.view.animation.Animation;
 import android.view.animation.TranslateAnimation;
 import android.widget.ArrayAdapter;
-import android.widget.Button;
 import android.widget.EditText;
 import android.widget.FrameLayout;
 import android.widget.ImageView;
@@ -93,7 +92,12 @@ public class MainActivity extends Activity {
 		    	String chat  =  chatInput.getText().toString();
 		    	chatInput.setText("");
 		    	values.add(chat);
+		    //	mBit.add(BeanClass.getCaptureImage());
 		    	initChat();
+		    	
+		    	//System.out.println(BeanClass.getCaptureImage());
+		    	
+		    	
 		  }
 		});
 		attech.setOnClickListener(new OnClickListener() {
@@ -111,9 +115,11 @@ public class MainActivity extends Activity {
 		            	Intent i = new Intent(getApplicationContext(), CameraPhotoCapture.class);
 		          		startActivity(i);
 		          		finish();
-
 		            } else if(item == 1) {
-
+		            	
+		            	Intent i = new Intent(getApplicationContext(), SelectImageGalleryActivity.class);
+		          		startActivity(i);
+		          		finish();
 		            } else if(item == 2) {
 
 		            }
@@ -159,7 +165,10 @@ public class MainActivity extends Activity {
 	private void initChat(){
 		
 		final ArrayAdapter<String> adapter = new ArrayAdapter<String>(this, R.layout.rowlayout, R.id.label, values);
+	//	final ArrayAdapter<Bitmap> adapter = new ArrayAdapter<Bitmap>(this, R.layout.rowlayout, R.id.chat_img, mBit);
 		listView.setAdapter(adapter); 
+		
+		
 		
 	}
 	

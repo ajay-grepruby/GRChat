@@ -3,7 +3,7 @@
     android:layout_width="wrap_content"
     android:layout_height="wrap_content" >
 
-    <ImageView
+   <!--  <ImageView
         android:id="@+id/icon"
         android:layout_width="40dp"
         android:layout_height="40dp"
@@ -11,7 +11,7 @@
         android:layout_marginRight="10dp"
         android:layout_marginTop="2dp"
         android:src="@drawable/logo" >
-    </ImageView> 
+    </ImageView>  
 
      <TextView
         android:id="@+id/label"
@@ -21,13 +21,12 @@
         android:layout_marginTop="7dp"
         android:textColor="#000"
         android:textSize="17sp" >
-    </TextView>
+    </TextView> --> 
     
-    <!--  <ImageView
+      <ImageView
         android:id="@+id/chat_img"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         >
-    </ImageView>--> 
-
+    </ImageView>
 </LinearLayout> 

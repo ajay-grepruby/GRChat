@@ -243,9 +243,11 @@ public class CameraPhotoCapture extends Activity {
 	            // Close progress dialog
 	            Dialog.dismiss();
 	            
-	            if(mBitmap != null)
-	              showImg.setImageBitmap(mBitmap);
-	            
+	            if(mBitmap != null){
+	              
+	            	showImg.setImageBitmap(mBitmap);
+	            	BeanClass.setCaptureImage(mBitmap);
+	            }
 	            
 	            
 	        }

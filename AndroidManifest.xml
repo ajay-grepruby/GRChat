@@ -22,13 +22,16 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        
+        <activity android:name="com.example.grchat.Signup" />
         <activity
-            android:name="com.example.grchat.Signup" />
-      <activity
             android:name="com.example.grchat.MainActivity" 
             android:windowSoftInputMode="stateHidden|adjustPan" />
-      <activity
-            android:name="com.example.grchat.CameraPhotoCapture" /> 
+        <activity  android:name="com.example.grchat.CameraPhotoCapture" /> 
+        <activity  android:name="com.example.grchat.SelectImageGalleryActivity" /> 
+        
+        <!-- <activity  android:name="com.example.grchat.SimpleList" /> -->
+        
     </application>
 
 </manifest>

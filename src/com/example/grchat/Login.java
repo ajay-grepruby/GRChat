@@ -103,7 +103,11 @@ public class Login extends Activity
     					
     					  }else{
     						  
-    						  new SigninData().execute();
+    						 // new SigninData().execute();
+    					  	
+    					  	Intent i = new Intent(getApplicationContext(), MainActivity.class);
+    							startActivity(i);
+    							finish();
     					
     					  }
             }
